@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {ImagesService} from '../../services/images.service';
+import {Image} from '../../model/Image';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  private readonly imagesQuantity = 4000;
+  public images: Image[] = [];
 
-  constructor() {}
-
+  public constructor(imagesService: ImagesService) {
+    this.images = imagesService.get(this.imagesQuantity);
+  }
 }
