@@ -4,11 +4,14 @@
       Prueba Front Ionic
     </ion-title>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Buscar…" [(ngModel)]="search"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-virtual-scroll [items]="images">
+    <ion-virtual-scroll [items]="images | filterImages: search">
       <ion-item *virtualItem="let item">
         <ion-avatar slot="start">
           <ion-img [src]="item.photo"></ion-img>

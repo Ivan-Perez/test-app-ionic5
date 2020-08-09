@@ -10,6 +10,7 @@ import {Image} from '../../model/Image';
 export class HomePage {
   private readonly imagesQuantity = 4000;
   public images: Image[] = [];
+  public search = '';
 
   public constructor(imagesService: ImagesService) {
     this.images = imagesService.get(this.imagesQuantity);
