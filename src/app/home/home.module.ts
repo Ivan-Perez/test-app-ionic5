@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import {FilterImagesPipe} from '../../pipe/filter-images.pipe';
+import {FilterImagesPipeModule} from '../../pipe/filter-images.pipe.module';
 
 
 @NgModule({
@@ -14,7 +14,8 @@ import {FilterImagesPipe} from '../../pipe/filter-images.pipe';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
+    FilterImagesPipeModule,
   ],
-  declarations: [HomePage, FilterImagesPipe]
+  declarations: [HomePage]
 })
 export class HomePageModule {}
