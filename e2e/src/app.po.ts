@@ -5,7 +5,11 @@ export class AppPage {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.deepCss('app-root ion-content')).getText();
+  getListItems() {
+    return element.all(by.deepCss('app-root ion-content ion-item'));
+  }
+
+  getSearchInput() {
+    return element(by.deepCss('app-root ion-header ion-searchbar input'));
   }
 }

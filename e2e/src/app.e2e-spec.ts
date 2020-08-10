@@ -5,10 +5,17 @@ describe('new App', () => {
 
   beforeEach(() => {
     page = new AppPage();
+    page.navigateTo();
   });
 
-  it('should be blank', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toContain('Start with Ionic UI Components');
+  it('should not load all the images (virtual scroll)', async () => {
+    expect(await page.getListItems().count()).toBeLessThan(1000);
+  });
+
+  it('should filter out images by the search term', async () => {
+    await page.getSearchInput().sendKeys('1000');
+    setImmediate(async () => {
+      expect(await page.getListItems().count()).toBe(1);
+    });
   });
 });
